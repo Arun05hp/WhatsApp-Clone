@@ -37,3 +37,9 @@
   outline: none;
   width: 100%;
 }
+
+.sidebar__chats {
+  background-color: #fff;
+  flex: 1;
+  overflow: scroll;
+}

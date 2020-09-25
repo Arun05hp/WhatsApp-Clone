@@ -3,3 +3,44 @@
   flex-direction: column;
   flex: 0.65;
 }
+
+.chat__header {
+  align-items: center;
+  border-bottom: 1px solid #dadada;
+  padding: 1rem;
+  display: flex;
+}
+
+.chat__headerInfo {
+  flex: 1;
+  padding-left: 1.2rem;
+}
+
+.chat__body {
+  background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+  background-repeat: repeat;
+  background-position: center;
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: scroll;
+}
+
+.chat__message {
+  background-color: #fff;
+  border-radius: 0 10px 10px 10px;
+  padding: 0.4rem;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  max-width: 80%;
+}
+
+.chat__timestamp {
+  margin-left: 0.6rem;
+  font-size: 0.7rem;
+}
+
+.chat__receiver {
+  background-color: #dcf8c6;
+  border-radius: 10px 0 10px 10px;
+  margin-left: auto;
+}

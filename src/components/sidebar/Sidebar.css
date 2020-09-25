@@ -4,7 +4,7 @@
   flex: 0.35;
 }
 .sidebar__header {
-  border-right: 1px soli #eee;
+  border-right: 1px solid #dadada;
   display: flex;
   padding: 1rem;
   justify-content: space-between;
@@ -41,5 +41,5 @@
 .sidebar__chats {
   background-color: #fff;
   flex: 1;
-  overflow: scroll;
+  overflow-y: scroll;
 }

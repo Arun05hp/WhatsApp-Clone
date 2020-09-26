@@ -7,9 +7,21 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import AttachFileIcon from "@material-ui/icons/AttachFile";
 import MicIcon from "@material-ui/icons/Mic";
 import SendIcon from "@material-ui/icons/Send";
+import baseUrl from "../../baseUrl";
 import "./Chat.css";
-const Chat = () => {
-  const [message, setMessage] = useState("s");
+const Chat = ({ messages }) => {
+  const [sendMessage, setsendMessage] = useState("");
+
+  const sendMsg = () => {
+    baseUrl.post("/api/message/new", {
+      message: sendMessage,
+      name: "Atul",
+      timestamp: "Just now",
+      received: false,
+    });
+    setsendMessage("");
+  };
+
   return (
     <div className="chat">
       <div className="chat__header">
@@ -28,24 +40,20 @@ const Chat = () => {
         </div>
       </div>
       <div className="chat__body">
-        <p className="chat__message">
-          message
-          <span className="chat__timestamp">
-            {new Date().toLocaleTimeString(navigator.language, {
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
-          </span>
-        </p>
-        <p className="chat__message chat__receiver">
-          message
-          <span className="chat__timestamp">
-            {new Date().toLocaleTimeString(navigator.language, {
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
-          </span>
-        </p>
+        {messages.map((message, index) => (
+          <p
+            key={message._id + index}
+            className={`chat__message ${message.received && "chat__receiver"}`}
+          >
+            {message.message}
+            <span className="chat__timestamp">
+              {new Date().toLocaleTimeString(navigator.language, {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </span>
+          </p>
+        ))}
       </div>
 
       <div className="chat__footer">
@@ -56,9 +64,14 @@ const Chat = () => {
           <AttachFileIcon />
         </IconButton>
         <form>
-          <input type="text" placeholder="Type a message" />
-          {message.trim() ? (
-            <IconButton onClick={() => console.log("jii")}>
+          <input
+            type="text"
+            onChange={({ target }) => setsendMessage(target.value)}
+            value={sendMessage}
+            placeholder="Type a message"
+          />
+          {sendMessage.trim() ? (
+            <IconButton onClick={sendMsg}>
               <SendIcon />
             </IconButton>
           ) : (

@@ -2,4 +2,5 @@
   display: flex;
   background-color: #ededed;
   height: 100vh;
+  min-width: 650px;
 }

@@ -37,10 +37,34 @@
 .chat__timestamp {
   margin-left: 0.6rem;
   font-size: 0.7rem;
+  display: block;
 }
 
 .chat__receiver {
   background-color: #dcf8c6;
   border-radius: 10px 0 10px 10px;
   margin-left: auto;
+}
+
+.chat__footer {
+  align-items: center;
+  border-top: 1px solid #dadada;
+  display: flex;
+  padding: 0.6rem 0.8rem;
+}
+
+.chat__footer > form {
+  display: flex;
+  flex: 1;
+}
+
+.chat__footer > form > input {
+  border-radius: 1.5rem;
+  border: none;
+  color: #4a4a4a;
+  flex: 1;
+  font-size: 0.9rem;
+  outline: none;
+  padding: 0.8rem;
+  margin: 0 0.6rem;
 }
